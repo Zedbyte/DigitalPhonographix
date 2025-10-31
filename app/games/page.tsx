@@ -159,9 +159,9 @@ const GAME_CATEGORIES: GameCategory[] = [
                 // TODO: Replace this placeholder with actual image for BUG word
                 imagePlaceholder: "",
                 letters: [
-                { id: "b-0", letter: "B", originalIndex: 0 },
-                { id: "u-0", letter: "U", originalIndex: 1 },
-                { id: "g-0", letter: "G", originalIndex: 2 },
+                { id: "b-0", letter: "b", originalIndex: 0 },
+                { id: "u-0", letter: "u", originalIndex: 1 },
+                { id: "g-0", letter: "g", originalIndex: 2 },
                 ],
             },
             {
@@ -169,9 +169,9 @@ const GAME_CATEGORIES: GameCategory[] = [
                 // TODO: Replace this placeholder with actual image for JUG word
                 imagePlaceholder: "",
                 letters: [
-                { id: "j-0", letter: "J", originalIndex: 0 },
-                { id: "u-1", letter: "U", originalIndex: 1 },
-                { id: "g-1", letter: "G", originalIndex: 2 },
+                { id: "j-0", letter: "j", originalIndex: 0 },
+                { id: "u-1", letter: "u", originalIndex: 1 },
+                { id: "g-1", letter: "g", originalIndex: 2 },
                 ],
             },
             {
@@ -179,9 +179,9 @@ const GAME_CATEGORIES: GameCategory[] = [
                 // TODO: Replace this placeholder with actual image for DIG word
                 imagePlaceholder: "",
                 letters: [
-                { id: "d-0", letter: "D", originalIndex: 0 },
-                { id: "i-0", letter: "I", originalIndex: 1 },
-                { id: "g-2", letter: "G", originalIndex: 2 },
+                { id: "d-0", letter: "d", originalIndex: 0 },
+                { id: "i-0", letter: "i", originalIndex: 1 },
+                { id: "g-2", letter: "g", originalIndex: 2 },
                 ],
             },
             {
@@ -189,9 +189,9 @@ const GAME_CATEGORIES: GameCategory[] = [
                 // TODO: Replace this placeholder with actual image for BIG word
                 imagePlaceholder: "",
                 letters: [
-                { id: "b-1", letter: "B", originalIndex: 0 },
-                { id: "i-1", letter: "I", originalIndex: 1 },
-                { id: "g-3", letter: "G", originalIndex: 2 },
+                { id: "b-1", letter: "b", originalIndex: 0 },
+                { id: "i-1", letter: "i", originalIndex: 1 },
+                { id: "g-3", letter: "g", originalIndex: 2 },
                 ],
             },
             {
@@ -199,9 +199,9 @@ const GAME_CATEGORIES: GameCategory[] = [
                 // TODO: Replace this placeholder with actual image for RIG word
                 imagePlaceholder: "",
                 letters: [
-                { id: "r-0", letter: "R", originalIndex: 0 },
-                { id: "i-2", letter: "I", originalIndex: 1 },
-                { id: "g-4", letter: "G", originalIndex: 2 },
+                { id: "r-0", letter: "r", originalIndex: 0 },
+                { id: "i-2", letter: "i", originalIndex: 1 },
+                { id: "g-4", letter: "g", originalIndex: 2 },
                 ],
             },
             {
@@ -209,9 +209,9 @@ const GAME_CATEGORIES: GameCategory[] = [
                 // TODO: Replace this placeholder with actual image for RUG word
                 imagePlaceholder: "",
                 letters: [
-                { id: "r-1", letter: "R", originalIndex: 0 },
-                { id: "u-2", letter: "U", originalIndex: 1 },
-                { id: "g-5", letter: "G", originalIndex: 2 },
+                { id: "r-1", letter: "r", originalIndex: 0 },
+                { id: "u-2", letter: "u", originalIndex: 1 },
+                { id: "g-5", letter: "g", originalIndex: 2 },
                 ],
             },
             {
@@ -219,9 +219,9 @@ const GAME_CATEGORIES: GameCategory[] = [
                 // TODO: Replace this placeholder with actual image for HUG word
                 imagePlaceholder: "",
                 letters: [
-                { id: "h-0", letter: "H", originalIndex: 0 },
-                { id: "u-3", letter: "U", originalIndex: 1 },
-                { id: "g-6", letter: "G", originalIndex: 2 },
+                { id: "h-0", letter: "h", originalIndex: 0 },
+                { id: "u-3", letter: "u", originalIndex: 1 },
+                { id: "g-6", letter: "g", originalIndex: 2 },
                 ],
             },
             {
@@ -229,9 +229,9 @@ const GAME_CATEGORIES: GameCategory[] = [
                 // TODO: Replace this placeholder with actual image for JIG word
                 imagePlaceholder: "",
                 letters: [
-                { id: "j-1", letter: "J", originalIndex: 0 },
-                { id: "i-3", letter: "I", originalIndex: 1 },
-                { id: "g-7", letter: "G", originalIndex: 2 },
+                { id: "j-1", letter: "j", originalIndex: 0 },
+                { id: "i-3", letter: "i", originalIndex: 1 },
+                { id: "g-7", letter: "g", originalIndex: 2 },
                 ],
             },
             {
@@ -239,9 +239,9 @@ const GAME_CATEGORIES: GameCategory[] = [
                 // TODO: Replace this placeholder with actual image for DUG word
                 imagePlaceholder: "",
                 letters: [
-                { id: "d-1", letter: "D", originalIndex: 0 },
-                { id: "u-4", letter: "U", originalIndex: 1 },
-                { id: "g-8", letter: "G", originalIndex: 2 },
+                { id: "d-1", letter: "d", originalIndex: 0 },
+                { id: "u-4", letter: "u", originalIndex: 1 },
+                { id: "g-8", letter: "g", originalIndex: 2 },
                 ],
             },
             ],
@@ -255,9 +255,9 @@ const GAME_CATEGORIES: GameCategory[] = [
                 // TODO: Replace this placeholder with actual image for WET word
                 imagePlaceholder: "",
                 letters: [
-                { id: "w-0", letter: "W", originalIndex: 0 },
-                { id: "e-0", letter: "E", originalIndex: 1 },
-                { id: "t-5", letter: "T", originalIndex: 2 },
+                { id: "w-0", letter: "w", originalIndex: 0 },
+                { id: "e-0", letter: "e", originalIndex: 1 },
+                { id: "t-5", letter: "t", originalIndex: 2 },
                 ],
             },
             {
@@ -265,9 +265,9 @@ const GAME_CATEGORIES: GameCategory[] = [
                 // TODO: Replace this placeholder with actual image for ZIP word
                 imagePlaceholder: "",
                 letters: [
-                { id: "z-0", letter: "Z", originalIndex: 0 },
-                { id: "i-4", letter: "I", originalIndex: 1 },
-                { id: "p-7", letter: "P", originalIndex: 2 },
+                { id: "z-0", letter: "z", originalIndex: 0 },
+                { id: "i-4", letter: "i", originalIndex: 1 },
+                { id: "p-7", letter: "p", originalIndex: 2 },
                 ],
             },
             {
@@ -275,9 +275,9 @@ const GAME_CATEGORIES: GameCategory[] = [
                 // TODO: Replace this placeholder with actual image for WEB word
                 imagePlaceholder: "",
                 letters: [
-                { id: "w-1", letter: "W", originalIndex: 0 },
-                { id: "e-1", letter: "E", originalIndex: 1 },
-                { id: "b-2", letter: "B", originalIndex: 2 },
+                { id: "w-1", letter: "w", originalIndex: 0 },
+                { id: "e-1", letter: "e", originalIndex: 1 },
+                { id: "b-2", letter: "b", originalIndex: 2 },
                 ],
             },
             {
@@ -285,10 +285,10 @@ const GAME_CATEGORIES: GameCategory[] = [
                 // TODO: Replace this placeholder with actual image for MUTT word
                 imagePlaceholder: "",
                 letters: [
-                { id: "m-2", letter: "M", originalIndex: 0 },
-                { id: "u-5", letter: "U", originalIndex: 1 },
-                { id: "t-6", letter: "T", originalIndex: 2 },
-                { id: "t-7", letter: "T", originalIndex: 3 },
+                { id: "m-2", letter: "m", originalIndex: 0 },
+                { id: "u-5", letter: "u", originalIndex: 1 },
+                { id: "t-6", letter: "t", originalIndex: 2 },
+                { id: "t-7", letter: "t", originalIndex: 3 },
                 ],
             },
             {
@@ -296,9 +296,9 @@ const GAME_CATEGORIES: GameCategory[] = [
                 // TODO: Replace this placeholder with actual image for BUN word
                 imagePlaceholder: "",
                 letters: [
-                { id: "b-3", letter: "B", originalIndex: 0 },
-                { id: "u-6", letter: "U", originalIndex: 1 },
-                { id: "n-0", letter: "N", originalIndex: 2 },
+                { id: "b-3", letter: "b", originalIndex: 0 },
+                { id: "u-6", letter: "u", originalIndex: 1 },
+                { id: "n-0", letter: "n", originalIndex: 2 },
                 ],
             },
             {
@@ -306,10 +306,10 @@ const GAME_CATEGORIES: GameCategory[] = [
                 // TODO: Replace this placeholder with actual image for BUZZ word
                 imagePlaceholder: "",
                 letters: [
-                { id: "b-4", letter: "B", originalIndex: 0 },
-                { id: "u-7", letter: "U", originalIndex: 1 },
-                { id: "z-1", letter: "Z", originalIndex: 2 },
-                { id: "z-2", letter: "Z", originalIndex: 3 },
+                { id: "b-4", letter: "b", originalIndex: 0 },
+                { id: "u-7", letter: "u", originalIndex: 1 },
+                { id: "z-1", letter: "z", originalIndex: 2 },
+                { id: "z-2", letter: "z", originalIndex: 3 },
                 ],
             },
             {
@@ -317,9 +317,9 @@ const GAME_CATEGORIES: GameCategory[] = [
                 // TODO: Replace this placeholder with actual image for NET word
                 imagePlaceholder: "",
                 letters: [
-                { id: "n-1", letter: "N", originalIndex: 0 },
-                { id: "e-2", letter: "E", originalIndex: 1 },
-                { id: "t-8", letter: "T", originalIndex: 2 },
+                { id: "n-1", letter: "n", originalIndex: 0 },
+                { id: "e-2", letter: "e", originalIndex: 1 },
+                { id: "t-8", letter: "t", originalIndex: 2 },
                 ],
             },
             {
@@ -327,9 +327,9 @@ const GAME_CATEGORIES: GameCategory[] = [
                 // TODO: Replace this placeholder with actual image for VET word
                 imagePlaceholder: "",
                 letters: [
-                { id: "v-0", letter: "V", originalIndex: 0 },
-                { id: "e-3", letter: "E", originalIndex: 1 },
-                { id: "t-9", letter: "T", originalIndex: 2 },
+                { id: "v-0", letter: "v", originalIndex: 0 },
+                { id: "e-3", letter: "e", originalIndex: 1 },
+                { id: "t-9", letter: "t", originalIndex: 2 },
                 ],
             },
             {
@@ -337,10 +337,10 @@ const GAME_CATEGORIES: GameCategory[] = [
                 // TODO: Replace this placeholder with actual image for BELL word
                 imagePlaceholder: "",
                 letters: [
-                { id: "b-5", letter: "B", originalIndex: 0 },
-                { id: "e-4", letter: "E", originalIndex: 1 },
-                { id: "l-0", letter: "L", originalIndex: 2 },
-                { id: "l-1", letter: "L", originalIndex: 3 },
+                { id: "b-5", letter: "b", originalIndex: 0 },
+                { id: "e-4", letter: "e", originalIndex: 1 },
+                { id: "l-0", letter: "l", originalIndex: 2 },
+                { id: "l-1", letter: "l", originalIndex: 3 },
                 ],
             },
             ],

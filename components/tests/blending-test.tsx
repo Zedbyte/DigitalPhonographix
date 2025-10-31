@@ -33,7 +33,7 @@ const SpelledOut = ({ word }: { word: string }) => {
     const spaced = word.split("").join(" ")
     return (
         <span
-        className="font-bold uppercase tracking-[.35em] text-2xl md:text-3xl"
+        className="font-bold tracking-[.35em] text-2xl md:text-3xl"
         aria-label={`Letters of ${word}`}
         >
         {spaced}

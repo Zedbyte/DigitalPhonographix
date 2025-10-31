@@ -24,7 +24,7 @@ const TEST_ITEMS: TestItem[] = [
   { name: "Blending Test", description: "Blend phonemes into words (e.g., c-a-t → cat)." },
   { name: "Phoneme Segmentation Test", description: "Segment words into phonemes (e.g., map → /m/ /a/ /p/)." },
   { name: "Auditory Processing Test", description: "Judge whether a 3-letter sequence is a real word sound." },
-  { name: "code Knowledge Test", description: "Match letters to sounds and basic graphemes." },
+  { name: "Code Knowledge Test", description: "Match letters to sounds and basic graphemes." },
 ]
 
 export default function Tests({ variant }: { variant: TestsVariant }) {
