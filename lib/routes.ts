@@ -4,4 +4,5 @@ export const ROUTES = {
     PRE_TEST: "/pretest" as const,
     GAMES: "/games" as const,
     POST_TEST: "/posttest" as const,
+    CODE_KNOWLEDGE_TEACHER: "/tests/code/teacher",
 }

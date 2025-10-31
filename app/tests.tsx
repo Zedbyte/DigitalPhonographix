@@ -10,6 +10,8 @@ import { ROUTES } from "@/lib/routes"
 import BlendingTest, { BlendingResult } from "@/components/tests/blending-test"
 import PhonemeSegmentationTest, { PhonemeSegmentationResult } from "@/components/tests/phoneme-segmentation-test"
 import AuditoryProcessingTest, { AuditoryProcessingResult } from "@/components/tests/auditory-processing-test"
+import CodeKnowledgeTest from "@/components/tests/code-knowledge-test"
+import { CodeKnowledgeResult } from "@/components/tests/code/shared"
 
 type TestsVariant = "pretest" | "posttest"
 
@@ -101,6 +103,10 @@ export default function Tests({ variant }: { variant: TestsVariant }) {
     console.log("auditory saveAll()", rs)
   }
 
+  const saveCodeAll = async (results: CodeKnowledgeResult[]) => {
+    // await fetch("/api/code-knowledge/bulk", { method: "POST", body: JSON.stringify(results) })
+    console.log("code-knowledge saveAll()", results)
+  }
 
   return (
     <div className="min-h-screen flex from-background via-accent/20 to-tertiary/30">
@@ -187,42 +193,12 @@ export default function Tests({ variant }: { variant: TestsVariant }) {
               )
 
               case 3:
-                // TODO: replace with CodeKnowledgeTest component later
                 return (
-                  <Card className="p-8 md:p-10 border-4 border-primary/30 bg-card shadow-xl">
-                    <section aria-label="code Knowledge Test">
-                      <h2 className="text-2xl font-semibold mb-4">Letter–Sound Match</h2>
-                      <p className="text-foreground/70 mb-4">
-                        Enter a letter and the sound it makes. For example, <strong>a</strong> → <strong>/a/</strong>.
-                      </p>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-2">
-                        <input
-                          value={codePair.letter}
-                          onChange={(e) => setCodePair((p) => ({ ...p, letter: e.target.value }))}
-                          placeholder="Letter (e.g., a)"
-                          className="rounded-lg border px-3 py-2 bg-background"
-                        />
-                        <input
-                          value={codePair.sound}
-                          onChange={(e) => setCodePair((p) => ({ ...p, sound: e.target.value }))}
-                          placeholder="Sound (e.g., /a/)"
-                          className="rounded-lg border px-3 py-2 bg-background"
-                        />
-                      </div>
-                      <div className="flex gap-2">
-                        <Button onClick={handleCodeCheck}>Check</Button>
-                        <Button variant="secondary" onClick={() => { setCodePair({ letter: "", sound: "" }); setCodeFeedback(null) }}>
-                          Reset
-                        </Button>
-                      </div>
-                      {codeFeedback && (
-                        <p className={`mt-4 font-semibold ${codeFeedback === "ok" ? "text-green-600" : "text-red-600"}`}>
-                          {codeFeedback === "ok" ? "Great match!" : "That pairing doesn’t match our sample."}
-                        </p>
-                      )}
-                    </section>
-                  </Card>
-                )
+                  <CodeKnowledgeTest
+                    variant={variant}
+                    onSubmitAll={saveCodeAll}
+                  />
+              )
 
               default:
                 return null
