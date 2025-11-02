@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 import { COL1, COL2, COL3, STUDENT_ORDER, META, buildMap } from "@/components/tests/code/shared"
 import { Link } from "@inertiajs/react"
 import { ROUTES } from "@/lib/routes"
-import { testsCodeTeacher } from "@/routes"
+import { testsCodeTeacher } from "@/app-routes"
 
 type Props = {
   variant: "pretest" | "posttest"

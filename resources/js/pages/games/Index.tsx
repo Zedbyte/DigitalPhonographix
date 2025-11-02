@@ -2,6 +2,7 @@ import type React from "react"
 import { useState, useEffect } from "react"
 import { Card } from "@/components/ui/card"
 import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, RotateCcw, Sparkles } from "lucide-react"
+import { OpenAnswerKeyButton } from "@/components/custom/open-answer-key-button"
 
 type Letter = {
   id: string
@@ -77,13 +78,13 @@ const GAME_CATEGORIES: GameCategory[] = [
                 ],
             },
             {
-                word: "sat",
-                // TODO: Replace this placeholder with actual image for SAT word
+                word: "cap",
+                // TODO: Replace this placeholder with actual image for CAT word
                 imagePlaceholder: "",
                 letters: [
-                { id: "s-0", letter: "s", originalIndex: 0 },
+                { id: "c-0", letter: "c", originalIndex: 0 },
                 { id: "a-2", letter: "a", originalIndex: 1 },
-                { id: "t-2", letter: "t", originalIndex: 2 },
+                { id: "p-2", letter: "p", originalIndex: 2 },
                 ],
             },
             {
@@ -134,16 +135,6 @@ const GAME_CATEGORIES: GameCategory[] = [
                 { id: "t-4", letter: "t", originalIndex: 0 },
                 { id: "a-4", letter: "a", originalIndex: 1 },
                 { id: "p-4", letter: "p", originalIndex: 2 },
-                ],
-            },
-            {
-                word: "pop",
-                // TODO: Replace this placeholder with actual image for POP word
-                imagePlaceholder: "",
-                letters: [
-                { id: "p-5", letter: "p", originalIndex: 0 },
-                { id: "o-3", letter: "o", originalIndex: 1 },
-                { id: "p-6", letter: "p", originalIndex: 2 },
                 ],
             },
             ],
@@ -232,16 +223,6 @@ const GAME_CATEGORIES: GameCategory[] = [
                 { id: "g-7", letter: "g", originalIndex: 2 },
                 ],
             },
-            {
-                word: "DUG",
-                // TODO: Replace this placeholder with actual image for DUG word
-                imagePlaceholder: "",
-                letters: [
-                { id: "d-1", letter: "d", originalIndex: 0 },
-                { id: "u-4", letter: "u", originalIndex: 1 },
-                { id: "g-8", letter: "g", originalIndex: 2 },
-                ],
-            },
             ],
         },
         {
@@ -300,17 +281,6 @@ const GAME_CATEGORIES: GameCategory[] = [
                 ],
             },
             {
-                word: "BUZZ",
-                // TODO: Replace this placeholder with actual image for BUZZ word
-                imagePlaceholder: "",
-                letters: [
-                { id: "b-4", letter: "b", originalIndex: 0 },
-                { id: "u-7", letter: "u", originalIndex: 1 },
-                { id: "z-1", letter: "z", originalIndex: 2 },
-                { id: "z-2", letter: "z", originalIndex: 3 },
-                ],
-            },
-            {
                 word: "NET",
                 // TODO: Replace this placeholder with actual image for NET word
                 imagePlaceholder: "",
@@ -357,7 +327,7 @@ const GAME_CATEGORIES: GameCategory[] = [
                 "Fat cat sat on a map.",
                 "Fat cat sat on a mop.",
                 "Fat cat sat on a cop.",
-                "Fat cat sat on a Pat.",
+                "Fat cat sat on Pat.",
             ],
             // TODO: Replace this with actual story image for Fat Cat Story
             imagePlaceholder: "",
@@ -368,11 +338,11 @@ const GAME_CATEGORIES: GameCategory[] = [
             gameType: "story",
             story: {
             sentences: [
-                "A Big bug dug",
-                "A Big bug dug jug",
-                "A Big bug did hug jug",
-                "A Big bug did jig jug",
-                "A Big bug sat on a jug.",
+                "Big bug dug",
+                "Big bug dug up a jug",
+                "Big bug did hug a jug",
+                "Big bug did jig on a jug",
+                "Big bug did sit on a jug.",
             ],
             // TODO: Replace this with actual story image for Bug on Jug Story
             imagePlaceholder: "",
@@ -382,7 +352,7 @@ const GAME_CATEGORIES: GameCategory[] = [
             name: "Ben Bun Story",
             gameType: "story",
             story: {
-            sentences: ["Ben Bun is wet.", "Buzz... Ben Bun got bit.", "Ben Bun is in net.", "Ben Bun at vet."],
+            sentences: ["Ben Bun is wet.", "Buzz... Ben Bun got bit.", "Ben Bun is in a net.", "Ben Bun is at a vet."],
             // TODO: Replace this with actual story image for Ben Bun Story
             imagePlaceholder: "",
             },
@@ -481,7 +451,7 @@ const GAME_CATEGORIES: GameCategory[] = [
             gameType: "auditoryProcessing",
             auditoryProcessing: {
             letters: ["b", "u", "r", "g", "h", "j", "i", "d"],
-            correctWords: ["rug", "bug", "dug", "dig", "rig", "big", "jig", "jug", "hug"],
+            correctWords: ["rug", "bug", "dug", "dig", "rig", "big", "jig", "jug", "hug", "bud"],
             },
         },
         {
@@ -997,6 +967,9 @@ export default function GamesPage() {
 
             {gameType === "auditoryProcessing" && currentGame.auditoryProcessing && (
             <div className="w-full max-w-2xl">
+                <div className="flex justify-center mb-4">
+                    <OpenAnswerKeyButton gameName={currentGame.name} />
+                </div>
                 <h1 className="text-4xl md:text-6xl font-bold text-center mb-4 text-foreground text-balance">
                 {currentGame.name}
                 </h1>

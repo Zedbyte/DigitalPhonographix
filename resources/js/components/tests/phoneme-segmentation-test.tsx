@@ -27,7 +27,8 @@ type Props = {
 }
 
 const PART_ONE = ["dog", "hat", "pin", "pot", "rat", "nut"] as const
-const PART_TWO = ["frog", "black", "nest", "trip", "milk", "drum"] as const
+const PART_TWO = ["frog", "black", "nest", "trip", "hand", "drum"] as const
+const PART_THREE = ["pim", "mif", "sep", "prif", "sept"] as const
 
 // Wide-tracking display (letters spaced visually for the prompt)
 const SpelledOut = ({ word }: { word: string }) => {
@@ -53,6 +54,10 @@ const buildMap = <T extends readonly string[]>(items: T) =>
     )
     const [part2, setPart2] = React.useState<Record<(typeof PART_TWO)[number], RowState>>(
         () => buildMap(PART_TWO)
+    )
+
+    const [part3, setPart3] = React.useState<Record<(typeof PART_THREE)[number], RowState>>(
+        () => buildMap(PART_THREE)
     )
 
     const [saving, setSaving] = React.useState<Record<string, boolean>>({}) // key: `${part}:${word}`
@@ -237,6 +242,26 @@ const buildMap = <T extends readonly string[]>(items: T) =>
                     idx,
                     part2[w],
                     (next) => setPart2((prev) => ({ ...prev, [w]: next }))
+                )
+                )}
+            </ol>
+            </Card>
+
+            
+            {/* PART THREE */}
+            <Card className="p-6 md:p-8 border-4 border-primary/30 bg-card shadow-xl h-full flex flex-col">
+            <header className="mb-4">
+                <h3 className="text-xl md:text-2xl font-semibold">Part Three</h3>
+            </header>
+
+            <ol className="space-y-3 flex-1">
+                {PART_THREE.map((w, idx) =>
+                renderRow(
+                    2,
+                    w,
+                    idx,
+                    part3[w],
+                    (next) => setPart3((prev) => ({ ...prev, [w]: next }))
                 )
                 )}
             </ol>

@@ -30,8 +30,8 @@ type Props = {
 type Item = { baseWord: string; removed: string; expected: string }
 
 const PART_ONE: Item[] = [
-  { baseWord: "pig",  removed: "p", expected: "ig" },
-  { baseWord: "pog",  removed: "g", expected: "po" },
+  { baseWord: "pim",  removed: "p", expected: "im" },
+  { baseWord: "tog",  removed: "g", expected: "to" },
   { baseWord: "sip",  removed: "s", expected: "ip" },
 ]
 

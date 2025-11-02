@@ -26,6 +26,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::controller(GamesController::class)->group(function () {
         Route::get('/games', 'index')->name('games');
+        Route::get('/games/answer-key', 'answerKey')->name('games.answer-key');
     });
 
     Route::controller(PostTestController::class)->group(function () {
