@@ -29,7 +29,7 @@ import {
 import { UserMenuContent } from '@/components/user-menu-content';
 import { useInitials } from '@/hooks/use-initials';
 import { cn, isSameUrl, resolveUrl } from '@/lib/utils';
-import { dashboard } from '@/routes';
+import { dashboard, games, postTest, preTest } from '@/routes';
 import { type BreadcrumbItem, type NavItem, type SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
 import { BookOpen, Folder, Gamepad2, Home, LayoutGrid, Menu, NotebookPen, NotepadText, Search } from 'lucide-react';
@@ -44,17 +44,17 @@ const mainNavItems: NavItem[] = [
     },
     {
         title: 'Pre-Test',
-        href: '',
+        href: preTest(),
         icon: NotebookPen,
     },
         {
         title: 'Games',
-        href: '',
+        href: games(),
         icon: Gamepad2,
     },
         {
         title: 'Post-Test',
-        href: '',
+        href: postTest(),
         icon: NotepadText,
     },
 ];

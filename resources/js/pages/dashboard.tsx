@@ -16,7 +16,7 @@ export default function Dashboard() {
         <AppLayout breadcrumbs={breadcrumbs}>
         <Head title="Dashboard" />
 
-        <main className="min-h-screen from-background via-accent/10 to-tertiary/20 flex items-center justify-center p-6">
+        <main className="flex-1 from-background via-accent/10 to-tertiary/20 flex items-center justify-center p-6">
             <div className="max-w-5xl w-full">
             <header className="text-center mb-10">
                 <h1 className="text-4xl md:text-5xl font-bold tracking-tight">Literacy Toolkit</h1>
