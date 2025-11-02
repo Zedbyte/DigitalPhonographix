@@ -3,79 +3,109 @@ import { Head, Link } from '@inertiajs/react';
 import AppLayout from '@/layouts/app-layout';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, PlusCircle } from 'lucide-react';
 import { type BreadcrumbItem } from '@/types';
 import { dashboard, games, postTest, preTest } from '@/routes';
+import React from 'react';
+import AddStudentModal from '@/components/modal/AddStudentModal';
 
 const breadcrumbs: BreadcrumbItem[] = [
-    { title: 'Dashboard', href: dashboard().url },
+  { title: 'Dashboard', href: dashboard().url },
 ];
 
 export default function Dashboard() {
-    return (
-        <AppLayout breadcrumbs={breadcrumbs}>
-        <Head title="Dashboard" />
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
 
-        <main className="flex-1 from-background via-accent/10 to-tertiary/20 flex items-center justify-center p-6">
-            <div className="max-w-5xl w-full">
-            <header className="text-center mb-10">
-                <h1 className="text-4xl md:text-5xl font-bold tracking-tight">Literacy Toolkit</h1>
-                <p className="text-foreground/70 mt-2">Choose a module to begin</p>
-            </header>
+  const handleAddStudent = (student: { name: string; grade: string }) => {
+    console.log("New student:", student);
+    // You can later send this to backend with Inertia.post('/students', student)
+  };
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {/* Pre-test */}
-                <Link href={preTest().url} className="group">
-                <Card className="p-6 h-full transition-all border-2 hover:shadow-xl hover:-translate-y-1">
-                    <div className="flex flex-col h-full">
-                    <h2 className="text-2xl font-semibold mb-2">Pre-test</h2>
-                    <p className="text-foreground/70 flex-1">
-                        Quick baseline to gauge current phonics & word recognition.
-                    </p>
-                    <Button className="mt-4 group-hover:translate-x-0.5 transition-transform w-fit">
-                        Start Pre-test
-                    </Button>
-                    </div>
-                </Card>
-                </Link>
+  return (
+    <AppLayout breadcrumbs={breadcrumbs}>
+      <Head title="Dashboard" />
 
-                {/* Games */}
-                <Link href={games().url} className="group">
-                <Card className="p-6 h-full transition-all border-2 hover:shadow-xl hover:-translate-y-1">
-                    <div className="flex flex-col h-full">
-                    <h2 className="text-2xl font-semibold mb-2">Games</h2>
-                    <p className="text-foreground/70 flex-1">
-                        Word building, reading stories, auditory processing, and sound bingo.
-                    </p>
-                    <Button className="mt-4 group-hover:translate-x-0.5 transition-transform w-fit">
-                        Play Now
-                    </Button>
-                    </div>
-                </Card>
-                </Link>
+      <main className="flex-1 from-background via-accent/10 to-tertiary/20 flex items-center justify-center p-6">
+        <div className="max-w-5xl w-full">
 
-                {/* Post-test */}
-                <Link href={postTest().url} className="group">
-                <Card className="p-6 h-full transition-all border-2 hover:shadow-xl hover:-translate-y-1">
-                    <div className="flex flex-col h-full">
-                    <h2 className="text-2xl font-semibold mb-2">Post-test</h2>
-                    <p className="text-foreground/70 flex-1">
-                        Measure improvement and compare against your baseline.
-                    </p>
-                    <Button className="mt-4 group-hover:translate-x-0.5 transition-transform w-fit">
-                        Start Post-test
-                    </Button>
-                    </div>
-                </Card>
-                </Link>
+          {/* Header Section */}
+          <header className="text-center mb-10 relative">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">Literacy Toolkit</h1>
+            <p className="text-foreground/70 mt-2">Choose a module to begin</p>
+
+            {/* Add Student Button */}
+            <div className="mt-6 flex justify-center">
+              <Button
+                onClick={() => setIsModalOpen(true)}
+                className="bg-pink-500 hover:bg-pink-600 text-white font-semibold text-lg px-6 py-3 rounded-xl flex items-center gap-2 shadow-md hover:shadow-lg transition-all"
+              >
+                <PlusCircle className="w-5 h-5" />
+                Add Student
+              </Button>
             </div>
+          </header>
 
-            <footer className="text-center mt-10 text-foreground/60 text-sm">
-                <Sparkles className="inline w-4 h-4 mr-1" />
-                Built with Inertia React & shadcn/ui
-            </footer>
-            </div>
-        </main>
-        </AppLayout>
-    );
+          {/* Cards Section */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Pre-test */}
+            <Link href={preTest().url} className="group">
+              <Card className="p-6 h-full transition-all border-2 hover:shadow-xl hover:-translate-y-1 bg-gradient-to-br from-yellow-50 to-pink-50">
+                <div className="flex flex-col h-full">
+                  <h2 className="text-2xl font-semibold mb-2 text-pink-700">Pre-test</h2>
+                  <p className="text-foreground/70 flex-1">
+                    Quick baseline to gauge current phonics & word recognition.
+                  </p>
+                  <Button className="mt-4 group-hover:translate-x-0.5 transition-transform w-fit bg-yellow-400 hover:bg-yellow-500 text-white">
+                    Start Pre-test
+                  </Button>
+                </div>
+              </Card>
+            </Link>
+
+            {/* Games */}
+            <Link href={games().url} className="group">
+              <Card className="p-6 h-full transition-all border-2 hover:shadow-xl hover:-translate-y-1 bg-gradient-to-br from-green-50 to-yellow-50">
+                <div className="flex flex-col h-full">
+                  <h2 className="text-2xl font-semibold mb-2 text-green-700">Games</h2>
+                  <p className="text-foreground/70 flex-1">
+                    Word building, reading stories, auditory processing, and sound bingo.
+                  </p>
+                  <Button className="mt-4 group-hover:translate-x-0.5 transition-transform w-fit bg-green-400 hover:bg-green-500 text-white">
+                    Play Now
+                  </Button>
+                </div>
+              </Card>
+            </Link>
+
+            {/* Post-test */}
+            <Link href={postTest().url} className="group">
+              <Card className="p-6 h-full transition-all border-2 hover:shadow-xl hover:-translate-y-1 bg-gradient-to-br from-blue-50 to-pink-50">
+                <div className="flex flex-col h-full">
+                  <h2 className="text-2xl font-semibold mb-2 text-blue-700">Post-test</h2>
+                  <p className="text-foreground/70 flex-1">
+                    Measure improvement and compare against your baseline.
+                  </p>
+                  <Button className="mt-4 group-hover:translate-x-0.5 transition-transform w-fit bg-blue-400 hover:bg-blue-500 text-white">
+                    Start Post-test
+                  </Button>
+                </div>
+              </Card>
+            </Link>
+          </div>
+
+          {/* Footer */}
+          <footer className="text-center mt-10 text-foreground/60 text-sm">
+            <Sparkles className="inline w-4 h-4 mr-1" />
+            Built with Inertia React & shadcn/ui
+          </footer>
+        </div>
+      </main>
+
+      {/* Modal Component */}
+      <AddStudentModal
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        />
+    </AppLayout>
+  );
 }

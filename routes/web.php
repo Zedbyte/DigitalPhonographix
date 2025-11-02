@@ -4,6 +4,7 @@ use App\Http\Controllers\GamesController;
 use App\Http\Controllers\PostTestController;
 use App\Http\Controllers\PreTestController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
@@ -15,11 +16,12 @@ Route::get('/', function () {
 })->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
+
+    // Dashboard
     Route::get('dashboard', function () {
         return Inertia::render('dashboard');
     })->name('dashboard');
 
-    // Literacy Toolkit modules
     Route::controller(PreTestController::class)->group(function () {
         Route::get('/pre-test', 'index')->name('pre-test');
     });
@@ -36,6 +38,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::controller(TestController::class)->group(function () {
         Route::get('/tests/code/teacher', 'index')->name('tests.code.teacher');
     });
+
+    //Student Management Routes
+    Route::controller(StudentController::class)->group(function () {
+        Route::get('/students', 'index')->name('students.index');     
+        Route::post('/students', 'store')->name('students.store');    
+    });
 });
 
-require __DIR__.'/settings.php';
+require __DIR__ . '/settings.php';
