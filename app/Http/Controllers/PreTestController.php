@@ -3,16 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\PreTest;
+use App\Models\Student;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class PreTestController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return inertia('pretest/Index');
+        $studentId = $request->query('student');
+        $student = Student::find($studentId);
+
+        return Inertia::render('pretest/Index', [
+            'student' => $student,
+        ]);
     }
 
     /**
