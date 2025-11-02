@@ -17,10 +17,7 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
-    // Dashboard
-    Route::get('dashboard', function () {
-        return Inertia::render('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [StudentController::class, 'index'])->name('dashboard');
 
     Route::controller(PreTestController::class)->group(function () {
         Route::get('/pre-test', 'index')->name('pre-test');
@@ -39,7 +36,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/tests/code/teacher', 'index')->name('tests.code.teacher');
     });
 
-    //Student Management Routes
     Route::controller(StudentController::class)->group(function () {
         Route::get('/students', 'index')->name('students.index');     
         Route::post('/students', 'store')->name('students.store');    

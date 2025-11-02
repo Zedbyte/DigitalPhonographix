@@ -28,9 +28,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
-        return Inertia::render('Dashboard', [
-            'students' => $students
+        $students = \App\Models\Student::orderBy('name')->get();
+        return \Inertia\Inertia::render('dashboard', [
+            'students' => $students,
         ]);
     }
 }

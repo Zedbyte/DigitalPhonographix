@@ -1,5 +1,5 @@
 // resources/js/pages/dashboard.tsx
-import { Head, Link } from '@inertiajs/react';
+import { Head, Link, usePage } from '@inertiajs/react';
 import AppLayout from '@/layouts/app-layout';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -8,17 +8,29 @@ import { type BreadcrumbItem } from '@/types';
 import { dashboard, games, postTest, preTest } from '@/routes';
 import React from 'react';
 import AddStudentModal from '@/components/modal/AddStudentModal';
+import SelectStudentModal from '@/components/modal/SelectStudentModal';
+
+interface Student {
+  id: number;
+  name: string;
+  grade: string;
+}
 
 const breadcrumbs: BreadcrumbItem[] = [
   { title: 'Dashboard', href: dashboard().url },
 ];
 
 export default function Dashboard() {
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [isAddModalOpen, setIsAddModalOpen] = React.useState(false);
+  const [isSelectModalOpen, setIsSelectModalOpen] = React.useState(false);
+  const [testType, setTestType] = React.useState<"pre-test" | "post-test" | null>(null);
 
-  const handleAddStudent = (student: { name: string; grade: string }) => {
-    console.log("New student:", student);
-    // You can later send this to backend with Inertia.post('/students', student)
+  // students are passed as Inertia props from backend
+  const { students } = usePage<{ students: Student[] }>().props;
+
+  const handleOpenSelectModal = (type: "pre-test" | "post-test") => {
+    setTestType(type);
+    setIsSelectModalOpen(true);
   };
 
   return (
@@ -28,15 +40,14 @@ export default function Dashboard() {
       <main className="flex-1 from-background via-accent/10 to-tertiary/20 flex items-center justify-center p-6">
         <div className="max-w-5xl w-full">
 
-          {/* Header Section */}
+          {/* Header */}
           <header className="text-center mb-10 relative">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight">Literacy Toolkit</h1>
             <p className="text-foreground/70 mt-2">Choose a module to begin</p>
 
-            {/* Add Student Button */}
             <div className="mt-6 flex justify-center">
               <Button
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => setIsAddModalOpen(true)}
                 className="bg-pink-500 hover:bg-pink-600 text-white font-semibold text-lg px-6 py-3 rounded-xl flex items-center gap-2 shadow-md hover:shadow-lg transition-all"
               >
                 <PlusCircle className="w-5 h-5" />
@@ -45,10 +56,10 @@ export default function Dashboard() {
             </div>
           </header>
 
-          {/* Cards Section */}
+          {/* Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Pre-test */}
-            <Link href={preTest().url} className="group">
+            <div onClick={() => handleOpenSelectModal("pre-test")} className="group cursor-pointer">
               <Card className="p-6 h-full transition-all border-2 hover:shadow-xl hover:-translate-y-1 bg-gradient-to-br from-yellow-50 to-pink-50">
                 <div className="flex flex-col h-full">
                   <h2 className="text-2xl font-semibold mb-2 text-pink-700">Pre-test</h2>
@@ -60,7 +71,7 @@ export default function Dashboard() {
                   </Button>
                 </div>
               </Card>
-            </Link>
+            </div>
 
             {/* Games */}
             <Link href={games().url} className="group">
@@ -78,7 +89,7 @@ export default function Dashboard() {
             </Link>
 
             {/* Post-test */}
-            <Link href={postTest().url} className="group">
+            <div onClick={() => handleOpenSelectModal("post-test")} className="group cursor-pointer">
               <Card className="p-6 h-full transition-all border-2 hover:shadow-xl hover:-translate-y-1 bg-gradient-to-br from-blue-50 to-pink-50">
                 <div className="flex flex-col h-full">
                   <h2 className="text-2xl font-semibold mb-2 text-blue-700">Post-test</h2>
@@ -90,7 +101,7 @@ export default function Dashboard() {
                   </Button>
                 </div>
               </Card>
-            </Link>
+            </div>
           </div>
 
           {/* Footer */}
@@ -101,11 +112,16 @@ export default function Dashboard() {
         </div>
       </main>
 
-      {/* Modal Component */}
-      <AddStudentModal
-        open={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        />
+      {/* Add Student Modal */}
+      <AddStudentModal open={isAddModalOpen} onClose={() => setIsAddModalOpen(false)} />
+
+      {/* Select Student Modal */}
+      <SelectStudentModal
+        open={isSelectModalOpen}
+        onClose={() => setIsSelectModalOpen(false)}
+        students={students || []}
+        testType={testType}
+      />
     </AppLayout>
   );
 }
