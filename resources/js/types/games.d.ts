@@ -12,7 +12,7 @@ export type WordData = {
 
 export type Story = {
   sentences: string[]
-  imagePlaceholder: string
+  images: string[]
 }
 
 export type AuditoryProcessingData = {

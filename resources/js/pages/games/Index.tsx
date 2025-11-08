@@ -584,19 +584,18 @@ export default function GamesPage() {
                 <div className="flex flex-col gap-8 items-center">
                 {/* Story Image - Now on top */}
                 <div className="w-full max-w-2xl">
-                    {currentGame.story?.imagePlaceholder ? (
-                    <img
-                        src={currentGame.story.imagePlaceholder || "/placeholder.svg"}
-                        alt={currentGame.name}
-                        className="w-full h-auto rounded-3xl shadow-2xl border-4 border-primary"
-                    />
+                    {currentGame.story?.images?.[currentSentenceIndex] ? (
+                        <img
+                            src={currentGame.story.images[currentSentenceIndex]}
+                            alt={`Sentence ${currentSentenceIndex + 1}`}
+                            className="w-full h-auto rounded-3xl shadow-2xl border-4 border-primary"
+                        />
                     ) : (
-                    <div className="w-full aspect-[4/3] rounded-3xl shadow-2xl border-4 border-primary bg-muted flex items-center justify-center">
-                        <p className="text-muted-foreground text-xl">Image Placeholder</p>
-                    </div>
+                        <div className="w-full aspect-[4/3] rounded-3xl shadow-2xl border-4 border-primary bg-muted flex items-center justify-center">
+                            <p className="text-muted-foreground text-xl">Image Placeholder</p>
+                        </div>
                     )}
                 </div>
-
                 {/* Story Text Area - Now below image */}
                 <div className="w-full max-w-2xl">
                     <Card className="p-8 md:p-12 bg-card shadow-xl border-4 border-primary/30 min-h-[200px] flex flex-col justify-between">
